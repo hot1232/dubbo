@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import time
-from pydubbo.pydubbo import DubboZK,DubboZKRegister
+from pydubbo.pydubbo import DubboZK
+import json
 
 if __name__ == '__main__':
     #d = DubboZK(interface="com.setsuna.api.service.AuthService", hosts='10.7.8.12:2181')
@@ -14,9 +15,9 @@ if __name__ == '__main__':
     #f = DubboZK(interface="com.setsuna.api.service.TicketService", hosts='10.7.8.12:2181')
     #f.attachments["access-token"] = token
     
-    e = DubboZK(interface="com.setsuna.api.service.AuthService2", hosts='10.7.8.12:2181')
-    e.hello([("I",10)])
+    e = DubboZK(interface="com.mryx.ehr.data.manager.api.DataManagerRpcService", hosts='10.2.39.16:2181')
+    data = e.getPersonJobInfoByCondition([("Lcom/mryx/ehr/data/manager/model/request/job/PersonJobQueryReq;",{"userKey":"9SQHzwYdrRuSGSDXCodfOA==","confCode":"moa_person","jobFunction":"105"})])
     
     #int 类型使用标记 I
     #data = f.findTicketByTicketId([("I",6091)]) 
-    print(d)
+    print(data)

@@ -69,7 +69,7 @@ class Dubbo(object):
 
         bytes = []
         while length > 0:
-            data = client.recv(1024)
+            data = client.recv(length)
             bytes.append(data)
             length -= len(data)
 

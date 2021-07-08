@@ -411,6 +411,8 @@ class ParserV2(ParserV1):
                 char = self.read(1)
                 if b'\x00' <= char <= b'\x79':
                     chars.append(char)
+                elif b'{' == char or b'}' == char:
+                    chars.append(char)
                 elif b'\xC2' <= char <= b'\xDF':
                     chars.append(char + self.read(1))
                 elif b'\xE0' <= char <= b'\xEF':
